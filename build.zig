@@ -51,6 +51,7 @@ pub fn build(b: *std.Build) !void {
 
             .HAVE_MEMFD_CREATE = is_musl or is_glibc or is_freebsd,
             .HAVE_SECURE_GETENV = is_musl or is_glibc or is_freebsd,
+            .HAVE_SETRLIMIT = is_unix and !is_mingw,
 
             // all compilation is using the Zig bundled c compiler
             .HAVE_BUILTIN_ASSUME = null,
